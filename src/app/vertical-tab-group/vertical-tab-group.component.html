@@ -1,0 +1,4 @@
+<div class="tab-bar">
+  <span *ngFor="let tab of _tabs">{{tab.label}}</span>
+</div>
+<ng-content [cdkPortalHost]="portalInstance"></ng-content>
