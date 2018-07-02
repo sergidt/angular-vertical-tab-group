@@ -1,16 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
     selector: 'test-component',
     template: `
-      <span>Hi</span>`
+      <span>{{label}}</span>`
 })
-export class TestComponent {
+export class TestComponent implements OnInit, OnDestroy {
 
     @Input() label: string;
 
-    constructor() {
-        console.log('Init');
+    ngOnInit() {
+        console.log(`Init ${this.label}`);
     }
 
+    ngOnDestroy() {
+        console.log(`Destroy ${this.label}`);
+    }
 }
