@@ -36,7 +36,7 @@ export class VerticalTabGroupComponent implements AfterContentChecked {
         this._indexToSelect = coerceNumberProperty(value, null);
     }
 
-    selectedTab:
+    selectedTab: TabContentComponent = null;
 
     @ContentChildren(TabContentComponent) _tabs: QueryList<TabContentComponent>;
 
