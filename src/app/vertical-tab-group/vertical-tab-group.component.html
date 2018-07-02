@@ -1,4 +1,5 @@
 <div class="tab-bar">
-  <span *ngFor="let tab of _tabs">{{tab.label}}</span>
+  <span *ngFor="let tab of _tabs; let i = index"
+  (click)="tabClicked(i)">{{tab.label}}</span>
 </div>
-<ng-content [cdkPortalHost]="portalInstance"></ng-content>
+<ng-container [cdkPortalOutlet]="portalInstance"></ng-container>

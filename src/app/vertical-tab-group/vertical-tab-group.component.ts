@@ -1,4 +1,7 @@
-import { AfterContentInit, ChangeDetectionStrategy, Component, ContentChildren, QueryList, Input, ViewContainerRef } from '@angular/core';
+import {
+    AfterContentInit, ChangeDetectionStrategy, Component, ContentChildren, QueryList, Input, ViewChild, TemplateRef, OnChanges,
+    SimpleChanges
+} from '@angular/core';
 import { TabContentComponent } from '../test/tab-content.component';
 import { Portal, TemplatePortal } from '@angular/cdk/portal';
 
@@ -20,16 +23,22 @@ export class VerticalTabGroupComponent implements AfterContentInit {
     }
 
     @ContentChildren(TabContentComponent) _tabs: QueryList<TabContentComponent>;
+    @ContentChildren(TemplateRef) _templates: QueryList<TemplateRef>;
+
+    @ViewChild('tpl') tmpl: TemplateRef<any>;
 
     portalInstance: Portal<any>;
 
     private _selectedIndex = 0;
 
-    constructor(private viewContainerRef: ViewContainerRef) {
+    tabClicked(index: number) {
+        this.selectedIndex = index;
+        this.portalInstance = new TemplatePortal(this._templates.find((_, index) => index === this._selectedIndex), undefined);
     }
 
     ngAfterContentInit() {
-        this.portalInstance = new TemplatePortal(this._tabs.find((tab, index) => index === this._selectedIndex).content, this.viewContainerRef);
+        //  const template = this._tabs.find((tab, index) => index === this._selectedIndex).content;
+        this.portalInstance = new TemplatePortal(this._templates.find((_, index) => index === this._selectedIndex), undefined);
     }
 }
 

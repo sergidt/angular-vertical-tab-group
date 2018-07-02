@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, TemplateRef } from '@angular/core';
+import { Component, Input, ViewChild, TemplateRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'tab-content',
@@ -11,5 +11,4 @@ export class TabContentComponent {
 
     @Input() label: string;
     @ViewChild(TemplateRef) content: TemplateRef<any>;
-
 }
