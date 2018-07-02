@@ -1,22 +1,27 @@
 
-<vertical-tab-group>
-  <tab-content [label]="1">
+<vertical-tab-group buttonBarBColor="#A98274" [selectedIndex]="1">
+  <tab-content tooltip="1"
+               icon="done">
     <ng-template>
       <test-component label="Foo"></test-component>
     </ng-template>
   </tab-content>
 
-  <tab-content [label]="2">
+  <tab-content tooltip="2"
+               icon="code">
     <ng-template>
-     <test-component label="hello"></test-component>
+      <test-component label="hello"></test-component>
     </ng-template>
   </tab-content>
 
-  <tab-content [label]="3">
+  <tab-content tooltip="3"
+               icon="build">
     <ng-template>
       <test-component label="bye"></test-component>
     </ng-template>
   </tab-content>
 
 </vertical-tab-group>
+
+
 

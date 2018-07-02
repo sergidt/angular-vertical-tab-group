@@ -4,21 +4,21 @@
   width: 100%;
   height: 100%;
 
-  .tab-bar {
-    display: flex;
+  mat-button-toggle-group {
+    display: inline-flex;
     flex-direction: column;
-    width: 50px;
-    background-color: coral;
-    height: 100%;
+    box-shadow: none;
 
-    span {
-      cursor: pointer;
-      font-size: 32px;
+    mat-button-toggle {
+      color: black;
+
+      .mat-button-toggle-button {
+        width: 64px;
+       }
     }
-  }
 
-  .tab-content {
-    width: 100%;
-    background-color: #5766bd;
+    .mat-button-toggle-checked {
+      color: white;
+    }
   }
 }

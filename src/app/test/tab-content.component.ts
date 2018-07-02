@@ -1,14 +1,16 @@
-import { Component, Input, ViewChild, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'tab-content',
     template: `
       <ng-template>
         <ng-content></ng-content>
-      </ng-template>`
+      </ng-template>`,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabContentComponent {
 
-    @Input() label: string;
-    @ViewChild(TemplateRef) content: TemplateRef<any>;
+    @Input() tooltip: string;
+    @Input() icon: string;
+
 }
